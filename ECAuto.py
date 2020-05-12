@@ -10,9 +10,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 from datetime import datetime
 
+#laruim
+
 def load(tag, options='xpath'):
     if options == 'xpath':
         return waiter.until(EC.presence_of_element_located((By.XPATH, tag)))
+
+#laruim
 
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")
@@ -25,7 +29,9 @@ chrome_options.add_argument('--no-proxy-server')
 chrome_options.add_argument("--proxy-server='direct://'")
 chrome_options.add_argument("--proxy-bypass-list=*")
 
-chrome = webdriver.Chrome('/bin/chromedriver/chromedriver', chrome_options=chrome_options)
+#laruim
+
+chrome = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
 waiter = WebDriverWait(chrome, 30)
 with open('log.txt', 'w+') as logfile:
 
@@ -34,6 +40,7 @@ with open('log.txt', 'w+') as logfile:
         print(log_output)
         logfile.write(log_output+'\n')
 
+#laruim
 
     def initWebsite1(root, part):
         site = root.format(part)
@@ -152,21 +159,21 @@ with open('log.txt', 'w+') as logfile:
 
     ROOT = r'http://vlabs.iitkgp.ernet.in/be/exp11/bjtce{}_ver1.html'
     base_slider, var_slider, reading, plotgraph = initWebsite1(ROOT, 'in')
-    step = random.randint(0,10)
+    step = random.randint(1,10)
     log(r'Chosen step: {}'.format(step))
     execute1(base_slider, var_slider, reading, plotgraph, '1in', step, 10)
     var_slider, base_slider, reading, plotgraph = initWebsite1(ROOT, 'op')
-    step = random.randint(0,5)
+    step = random.randint(1,5)
     log(r'Chosen step: {}'.format(step))
     execute1(base_slider, var_slider, reading, plotgraph, '1op', step, 15)
 
     ROOT = r'http://vlabs.iitkgp.ernet.in/be/exp12/bjtcb{}_ver1.html'
     base_slider, var_slider, reading, plotgraph = initWebsite1(ROOT, 'in')
-    step = random.randint(0,10)
+    step = random.randint(1,10)
     log(r'Chosen step: {}'.format(step))
     execute1(base_slider, var_slider, reading, plotgraph, '2in', step, 10)
     var_slider, base_slider, reading, plotgraph = initWebsite1(ROOT, 'op')
-    step = random.randint(0,5)
+    step = random.randint(1,5)
     log(r'Chosen step: {}'.format(step))
     execute1(base_slider, var_slider, reading, plotgraph, '2op', step, 12)
 
